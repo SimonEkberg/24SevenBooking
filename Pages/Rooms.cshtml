@@ -1,0 +1,36 @@
+﻿@page
+@model RoomsModel
+@using _24SevenBooking.Models
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+<h3>Rooms</h3>
+
+@if (Model.Rooms == null || !Model.Rooms.Any())
+{
+    <p><em>No rooms available.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Room ID</th>
+                <th>Room Number</th>
+                <th>Room Category</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in Model.Rooms)
+            {
+                <tr>
+                    <td>@room.RoomId</td>
+                    <td>@room.RoomNumber</td>
+                    <td>@room.Category</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
